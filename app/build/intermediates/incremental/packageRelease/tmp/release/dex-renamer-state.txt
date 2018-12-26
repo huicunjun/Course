@@ -1,0 +1,4 @@
+#Tue Dec 25 22:34:46 CST 2018
+base.0=C\:\\Users\\Father\\Desktop\\CurriculumSchedule\\app\\build\\intermediates\\transforms\\dexMerger\\release\\0
+path.0=classes.dex
+renamed.0=classes.dex
