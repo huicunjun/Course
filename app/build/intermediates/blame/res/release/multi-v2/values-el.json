@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\Father\\Desktop\\CurriculumSchedule\\app\\build\\intermediates\\incremental\\mergeReleaseResources\\merged.dir\\values-el\\values-el.xml",
+            "outputFile": "C:\\Users\\Father\\Desktop\\Course\\app\\build\\intermediates\\incremental\\mergeReleaseResources\\merged.dir\\values-el\\values-el.xml",
             "map": [
                 {
                     "source": "C:\\Users\\Father\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-28.0.0.aar\\2dbac3b904fcc3d797dcb8a13fa99c01\\res\\values-el\\values-el.xml",

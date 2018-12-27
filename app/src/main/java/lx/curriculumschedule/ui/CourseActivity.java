@@ -2,7 +2,11 @@ package lx.curriculumschedule.ui;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
@@ -12,6 +16,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -20,13 +25,20 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.qmuiteam.qmui.util.QMUIDisplayHelper;
+import com.qmuiteam.qmui.util.QMUIDrawableHelper;
+import com.qmuiteam.qmui.util.QMUIStatusBarHelper;
+import com.qmuiteam.qmui.util.QMUIViewHelper;
+import com.qmuiteam.qmui.widget.dialog.QMUIDialog;
+import com.qmuiteam.qmui.widget.dialog.QMUIDialogBuilder;
+import com.qmuiteam.qmui.widget.dialog.QMUITipDialog;
+
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 import java.io.IOException;
-import java.util.AbstractList;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -55,13 +67,13 @@ public class CourseActivity extends AppCompatActivity implements View.OnClickLis
 
     private SPUtils spUtils;
     private User user;
-    private List<Course> dataList = new ArrayList<>();
+    private List<Course> courses = new ArrayList<>();
     private Toolbar mToolbar;
     private DrawerLayout mDl;
     private int TYPE_KC = 0;
     private int TYPE_TIME = 1;
     private FloatingActionButton mFab;
-    private IAdapter adapter ;
+    private IAdapter adapter;
     private List<TextView> viewLists = new ArrayList<>();
 
     @Override
@@ -74,23 +86,51 @@ public class CourseActivity extends AppCompatActivity implements View.OnClickLis
         adapter = new IAdapter();
 
         user = new User();
-        user.setId(spUtils.getString("id", "1711605043"));
+        user.setId(spUtils.getString("账号", "1711605043"));
         user.setName(spUtils.getString("name", "李涤威"));
         // init();
         initView();
 
         initToolBar();
-
-        if (NetUtils.isConnectIsNomarl(context)) {
-            loadCookies();
-            if (spUtils.getString("姓名") != null) {
-                new ToastUtils(getWindow().getDecorView()).showSnackbar(DateUtils.getTip(spUtils.getString("姓名") + "\n"));
+        if (QMUIDisplayHelper.hasInternet(context)) {
+            if (spUtils.getBoolean("登录", false)) {
+              new Thread(new Runnable() {
+                  @Override
+                  public void run() {
+                     courses = initData();
+                      runOnUiThread(new Runnable() {
+                          @Override
+                          public void run() {
+                              if (courses==null){
+                                  new ToastUtils(getWindow().getDecorView()).showSnackbar("获取课表数据为空\n");
+                              }else {
+                                  mRecy.setAdapter(adapter);
+                              }
+                          }
+                      });
+                  }
+              }).start();
+                if (spUtils.getString("姓名") != null) {
+                    new ToastUtils(getWindow().getDecorView()).showSnackbar(DateUtils.getTip(spUtils.getString("姓名") + "\n"));
+                }
+            }else {
+                new ToastUtils(getWindow().getDecorView()).showSnackbar("获取课表数据失败,可能当前账户登录已失效,重新登录试试!"+"\n");
             }
+
         } else {
             new ToastUtils(getWindow().getDecorView()).showSnackbar("网络已经断开!\n");
         }
 
         mingyan();
+
+        mFab.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                Bitmap bitmapFromView = QMUIDrawableHelper.createBitmapFromView(mRecy);
+               // new QMUITipDialog.Builder(context).setIconType().create();
+                return false;
+            }
+        });
 
     }
 
@@ -101,14 +141,32 @@ public class CourseActivity extends AppCompatActivity implements View.OnClickLis
     }
 
     @Override
+    protected void onDestroy() {
+        HttpUtils.saveCookies(this);
+        super.onDestroy();
+    }
+
+    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.zhuxiao:
-                spUtils.putBoolean("登录", false);
-                new SPUtils(context, "cookie").getSp().edit().clear().apply();
-                Intent intent = new Intent(context, LoginActivity.class);
-                startActivity(intent);
-                finish();
+               new QMUIDialog.MenuDialogBuilder(context).addItem("确定", new DialogInterface.OnClickListener() {
+                   @Override
+                   public void onClick(DialogInterface dialog, int which) {
+                       spUtils.putBoolean("登录", false);
+                       new SPUtils(context, "cookie").getSp().edit().clear().apply();
+                       Intent intent = new Intent(context, LoginActivity.class);
+                       startActivity(intent);
+                       finish();
+                   }
+               }).addItem("取消", new DialogInterface.OnClickListener() {
+                   @Override
+                   public void onClick(DialogInterface dialog, int which) {
+                       dialog.cancel();
+                   }
+               }).show();
+
+
                 break;
             case R.id.setting:
                 new ToastUtils(getWindow().getDecorView()).showSnackbar("开发者正在夜以继日的开发中!\n");
@@ -125,92 +183,65 @@ public class CourseActivity extends AppCompatActivity implements View.OnClickLis
 
     }
 
-    private void initData() {
-        final String url = "http://61.142.209.19:81/xskbcx.aspx";
 
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                Request request = new Request.Builder().url("http://61.142.209.19:81/xs_main.aspx?xh=" + user.getId() + "").get().build();
+    private  List<Course> initData() {
+        List<Course> dataList = new ArrayList<>();
+                Request request = new Request.Builder()
+                        .get()
+                        .addHeader("Host", "61.142.209.19:81")
+                        .addHeader("Referer", "http://61.142.209.19:81/xs_main.aspx?xh=" + user.getId() + "")
+                        .url("http://61.142.209.19:81/xskbcx.aspx?xh=" + user.getId() + "&xm=" + user.getName() + "&gnmkdm=N121603")
+                        .build();
+                Response response = null;//Referer http://61.142.209.19:81/xs_main.aspx?xh=1711605043
+                String string = null;
                 try {
-                    Response response = okHttpClient.newCall(request).execute();
-                    String string = response.body().string();
+                    response = okHttpClient.newCall(request).execute();
+                    string = response.body().string();
                     Log.i(TAG, string);
-                    LogUtils.Logi(string);
-
-                    Document parse = Jsoup.parse(string);
-                    String href = parse.select("li.top:nth-child(5) > ul:nth-child(2) > li:nth-child(1) > a:nth-child(1)").attr("href").toString();
-                    Request request1 = new Request.Builder()
-                            .get()
-                            .addHeader("Host", "61.142.209.19:81")
-                            .addHeader("Referer", "http://61.142.209.19:81/xs_main.aspx?xh=" + user.getId() + "")
-                            .url("http://61.142.209.19:81/xskbcx.aspx?xh=" + user.getId() + "&xm=" + user.getName() + "&gnmkdm=N121603")
-                            // .removeHeader("User-Agent")
-                            //.addHeader("User-Agent","Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:64.0) Gecko/20100101 Firefox/64.0")
-                            .build();
-                    Response response1 = okHttpClient.newCall(request1).execute();//Referer http://61.142.209.19:81/xs_main.aspx?xh=1711605043
-                    String string1 = response1.body().string();
-                    Log.i(TAG, string1);
-
-                    final Document document1 = Jsoup.parse(string1);
-                    final Element element = document1.select("#Table1 > tbody:nth-child(1)").get(0);//#Table1 > tbody:nth-child(1)
-
-                    runOnUiThread(new Runnable() {
-                        @Override
-                        public void run() {
-
-                            Elements elements = document1.getElementById("Table1").getElementsByTag("tbody").get(0).getElementsByTag("tr");
-                            for (int i = 2; i < elements.size(); i++) {//12
-                                Elements tds = elements.get(i).getElementsByTag("td");
-                                // if (tds.get(0).text().contains("上"))
-                                // List<Course> tempDataList = new ArrayList<>();
-                                int flag = 0;
-                                for (int j = 0; j < tds.size(); j++) {
-                                    Element td = tds.get(j);
-                                    String text = td.text();
-                                    String rowspan = td.attr("rowspan");
-                                    String align = td.attr("align");
-                                    if (align.equals("center")) {
-                                        Course course = new Course();
-                                        if (text.contains("周") && text.contains("}")) {
-                                            String time = text.substring(text.indexOf("周") - 1, text.indexOf("}") + 1);
-                                            course.setTime(time);
-                                            String name = text.substring(0, text.indexOf("周"));
-                                            course.setName(name);
-                                        }
-                                        //  String name = text.substring(text.indexOf("周"),(text.indexOf("}"))+1);
-
-                                        // tempDataList.add(course);
-
-                                        if (flag < 5) {
-
-                                            dataList.add(course);
-                                            flag++;
-                                        }
-
-                                    }
-                                    if (j == tds.size() - 1) {
-                                        i++;
-                                    }
-                                }
-
-                            }
-                            //append(dataList.toString()+"\n");
-                            // dataList.add(0, );
-                            // dataList.add(6, )
-
-                            mRecy.setAdapter(adapter);
-                        }
-
-                    });
-
-
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
+
+                if (string!=null&&string.contains("周")){
+                    final Document document = Jsoup.parse(string);
+                    final Element element = document.select("#Table1 > tbody:nth-child(1)").get(0);//#Table1 > tbody:nth-child(1)
+
+                    Elements elements = document.getElementById("Table1").getElementsByTag("tbody").get(0).getElementsByTag("tr");
+                    for (int i = 2; i < elements.size(); i++) {//12
+                        Elements tds = elements.get(i).getElementsByTag("td");
+                        int flag = 0;
+                        for (int j = 0; j < tds.size(); j++) {
+                            Element td = tds.get(j);
+                            String text = td.text();
+                            String rowspan = td.attr("rowspan");
+                            String align = td.attr("align");
+                            if (align.equals("center")) {
+                                Course course = new Course();
+                                if (text.contains("周") && text.contains("}")) {
+                                    String time = text.substring(text.indexOf("周") - 1, text.indexOf("}") + 1);
+                                    course.setTime(time);
+                                    String name = text.substring(0, text.indexOf("周"));
+                                    course.setName(name);
+                                    /*String teacher = text.substring(text.indexOf("} "), text.indexOf(" "));
+                                    course.setTeacher(teacher);*/
+                                    String address = text.substring(text.indexOf("} ")+1, text.length());
+                                    course.setAddress(address);
+                                }
+                                if (flag < 5) {
+                                    dataList.add(course);
+                                    flag++;
+                                }
+                            }
+                            if (j == tds.size() - 1) {
+                                i++;
+                            }
+                        }
+                    }
+                    return  dataList;
+                }else {
+                    return null;
+                }
             }
-        }).start();
-    }
 
     private void initView() {
         mRecy = (RecyclerView) findViewById(R.id.recy);
@@ -225,7 +256,19 @@ public class CourseActivity extends AppCompatActivity implements View.OnClickLis
 
     private void loadCookies() {
         if (spUtils.getBoolean("登录", false)) {
-            initData();
+           // initData();
+            /*new Thread(new Runnable() {
+                @Override
+                public void run() {
+                   courses = initData();
+                   runOnUiThread(new Runnable() {
+                       @Override
+                       public void run() {
+                           mRecy.setAdapter(adapter);
+                       }
+                   });
+                }
+            }).start();*/
         } else {
 
         }
@@ -249,6 +292,14 @@ public class CourseActivity extends AppCompatActivity implements View.OnClickLis
                 break;
             case R.id.fab:
                 adapter.reSetColor();
+                int color = getRandomColor();
+               // QMUIStatusBarHelper.translucent(this,color);
+                QMUIViewHelper.playViewBackgroundAnimation(mToolbar,((ColorDrawable) mToolbar.getBackground()).getColor(),color,2000);
+               getWindow().setStatusBarColor(color);
+               // mToolbar.setBackgroundColor(color);
+               // QMUIViewHelper.playViewBackgroundAnimation(mFab,getRandomColor(),getRandomColor(),2000);
+                //mFab.setBackgroundColor(color);
+
                 break;
         }
     }
@@ -275,16 +326,16 @@ public class CourseActivity extends AppCompatActivity implements View.OnClickLis
         @Override
         public void onBindViewHolder(@NonNull RecyclerView.ViewHolder courseViewHolder, int i) {
 
-            courseViewHolder.mTv.setText(dataList.get(i).getName());
+            courseViewHolder.mTv.setText(courses.get(i).getName());
 
-            if (dataList.get(i).getName().length() > 2) {
+            if (courses.get(i).getName().length() > 2) {
                 courseViewHolder.mTv.setBackgroundColor(getRandomColor());
             }
         }*/
 
         @Override
         public int getItemCount() {
-            return dataList.size();
+            return courses.size();
         }
 
         @NonNull
@@ -306,16 +357,16 @@ public class CourseActivity extends AppCompatActivity implements View.OnClickLis
         public void onBindViewHolder(@NonNull RecyclerView.ViewHolder viewHolder, int i) {
             if (viewHolder instanceof CourseViewHolder) {
                 CourseViewHolder courseViewHolder = ((CourseViewHolder) viewHolder);
-                courseViewHolder.mTv.setText(dataList.get(i).getName());
-                if (dataList.get(i).getName().length() > 2) {
+                courseViewHolder.mTv.setText(courses.get(i).getName()+courses.get(i).getAddress()+courses.get(i).getTeacher());
+                if (courses.get(i).getName().length() > 2) {
                     courseViewHolder.mTv.setBackgroundColor(getRandomColor());
                     viewLists.add(courseViewHolder.mTv);
                 }
           /*  if (viewHolder instanceof CourseViewHolder) {
                 CourseViewHolder courseViewHolder = ((CourseViewHolder) viewHolder);
                 i = i - 1 - i / 6;
-                courseViewHolder.mTv.setText(dataList.get(i).getName());
-                if (dataList.get(i).getName().length() > 2) {
+                courseViewHolder.mTv.setText(courses.get(i).getName());
+                if (courses.get(i).getName().length() > 2) {
                     courseViewHolder.mTv.setBackgroundColor(getRandomColor());
                     viewLists.add(courseViewHolder.mTv);
                 }
@@ -356,12 +407,13 @@ public class CourseActivity extends AppCompatActivity implements View.OnClickLis
 /*        @Override
         public int getItemViewType(int position) {
             return position % 6 == 0 ? TYPE_TIME : TYPE_KC;
-            //return dataList.get(position).getType();
+            //return courses.get(position).getType();
         }*/
 
         public void reSetColor() {
             for (int i = 0; i < viewLists.size(); i++) {
-                viewLists.get(i).setBackgroundColor(getRandomColor());
+             //   viewLists.get(i).setBackgroundColor(getRandomColor());
+                QMUIViewHelper.playViewBackgroundAnimation(viewLists.get(i),((ColorDrawable) viewLists.get(i).getBackground()).getColor(),getRandomColor(),2000);
             }
         }
 

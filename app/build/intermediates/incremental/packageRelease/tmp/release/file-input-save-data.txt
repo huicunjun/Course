@@ -1,7 +1,7 @@
 #Internal package file, do not edit.
-#Tue Dec 25 22:34:46 CST 2018
+#Wed Dec 26 20:41:41 CST 2018
 0.baseType=DIRECTORY
-0.base=C\:\\Users\\Father\\Desktop\\CurriculumSchedule\\app\\build\\intermediates\\transforms\\dexMerger\\release\\0
+0.base=C\:\\Users\\Father\\Desktop\\Course\\app\\build\\intermediates\\transforms\\dexMerger\\release\\0
 0.path=classes.dex
 0.set=DEX
 count=1

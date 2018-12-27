@@ -3,6 +3,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:gravity="center"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".WelcomeActivity">
 
+<com.qmuiteam.qmui.widget.QMUILoadingView
+    app:qmui_loading_view_size="100dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"/>
 </LinearLayout>

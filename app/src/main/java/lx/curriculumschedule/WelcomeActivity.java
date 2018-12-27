@@ -17,6 +17,22 @@ public class WelcomeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome);
+        HttpUtils.localCookie(WelcomeActivity.this);
+       /* new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    Thread.sleep(2000);
+                    HttpUtils.localCookie(WelcomeActivity.this);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        }).start();*/
+
+    }
+
+   /* private void localCookie() {
         SPUtils spCookie = new SPUtils(getApplicationContext(),"cookie");
         SPUtils spUtils = new SPUtils(getApplicationContext(),"info");
 
@@ -51,5 +67,5 @@ public class WelcomeActivity extends AppCompatActivity {
             startActivity(intent);
             finish();
         }
-    }
+    }*/
 }

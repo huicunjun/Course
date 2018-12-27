@@ -68,6 +68,7 @@
     <color name="color039be5">#039be5</color>
     <color name="color3F51B5">#3F51B5</color>
     <color name="color536dfe">#536dfe</color>
+    <color name="color53add9">#53add9</color>
     <color name="color5c6bc0">#5c6bc0</color>
     <color name="color607d8b">#607d8b</color>
     <color name="color795548">#795548</color>
@@ -77,7 +78,12 @@
     <color name="colorFFFFFF">#FFFFFF</color>
     <color name="colorPrimary">#FF4081</color>
     <color name="colorPrimaryDark">#FFEF4D84</color>
+    <color name="colorb3f16d">#b3f16d</color>
+    <color name="colorb442ca">#b442ca</color>
     <color name="colorba68c8">#ba68c8</color>
+    <color name="colorbca3de">#bca3de</color>
+    <color name="colord9795c">#d9795c</color>
+    <color name="colordcd862">#dcd862</color>
     <color name="colorff5722">#FF5722</color>
     <color name="design_bottom_navigation_shadow_color">#14000000</color>
     <color name="design_default_color_primary">#3F51B5</color>
@@ -270,6 +276,8 @@
         <attr format="boolean" name="showTitle"/>
         <attr format="dimension" name="buttonIconDimen"/>
     </declare-styleable>
+    <declare-styleable name="AlphaSlideBar"><attr format="reference" name="selector_AlphaSlideBar"/><attr format="color" name="borderColor_AlphaSlideBar"/><attr format="integer" name="borderSize_AlphaSlideBar"/></declare-styleable>
+    <declare-styleable name="AlphaTileView"><attr format="integer" name="tileSize"/><attr format="color" name="tileOddColor"/><attr format="color" name="tileEvenColor"/></declare-styleable>
     <declare-styleable name="AnimatedStateListDrawableCompat">
         <!-- Indicates whether the drawable should be initially visible. -->
         <attr name="android:visible"/>
@@ -840,6 +848,7 @@
       
       <enum name="auto" value="-1"/>
     </attr><attr format="boolean" name="behavior_hideable"/><attr format="boolean" name="behavior_skipCollapsed"/><attr format="boolean" name="behavior_fitToContents"/></declare-styleable>
+    <declare-styleable name="BrightnessSlideBar"><attr format="reference" name="selector_BrightnessSlider"/><attr format="color" name="borderColor_BrightnessSlider"/><attr format="integer" name="borderSize_BrightnessSlider"/></declare-styleable>
     <declare-styleable name="ButtonBarLayout">
         <!-- Whether to automatically stack the buttons when there is not
              enough space to lay them out side-by-side. -->
@@ -926,6 +935,7 @@
       
       <enum name="parallax" value="2"/>
     </attr><attr format="float" name="layout_collapseParallaxMultiplier"/></declare-styleable>
+    <declare-styleable name="ColorPickerView"><attr format="reference" name="palette"/><attr format="reference" name="selector"/><attr format="float" name="alpha_selector"/><attr format="float" name="alpha_flag"/></declare-styleable>
     <declare-styleable name="ColorStateListItem">
         <!-- Base color for this state. -->
         <attr name="android:color"/>
@@ -1447,6 +1457,7 @@
         <!-- Drawable for the arrow icon indicating a particular item is a submenu. -->
         <attr format="reference" name="subMenuArrow"/>
     </declare-styleable>
+    <declare-styleable name="MultiColorPickerView"><attr format="reference" name="palette2"/></declare-styleable>
     <declare-styleable name="NavigationView"><attr name="android:background"/><attr name="android:fitsSystemWindows"/><attr name="android:maxWidth"/><attr name="elevation"/><attr format="reference" name="menu"/><attr format="color" name="itemIconTint"/><attr format="color" name="itemTextColor"/><attr format="reference" name="itemBackground"/><attr format="reference" name="itemTextAppearance"/><attr format="reference" name="headerLayout"/><attr format="dimension" name="itemHorizontalPadding"/><attr format="dimension" name="itemIconPadding"/></declare-styleable>
     <declare-styleable name="PopupWindow">
         <!-- Whether the popup window should overlap its anchor view. -->

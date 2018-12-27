@@ -29,7 +29,7 @@
             android:orientation="vertical">
 
             <android.support.v7.widget.AppCompatEditText
-                android:text="1711605043"
+                android:text=""
                 android:id="@+id/username"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -37,7 +37,7 @@
                 android:inputType="textEmailAddress" />
 
             <android.support.v7.widget.AppCompatEditText
-                android:text="440981199906226832"
+                android:text=""
                 android:id="@+id/password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -73,7 +73,7 @@
                 android:textColor="#FFFFFF"
                 android:textSize="15dp" />
 
-            <LinearLayout
+         <!--   <LinearLayout
                 android:layout_marginTop="8dp"
                 android:gravity="right"
                 android:orientation="horizontal"
@@ -97,7 +97,7 @@
                     android:textColor="@color/colorAccent"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
-            </LinearLayout>
+            </LinearLayout>-->
 
         </LinearLayout>
     </android.support.v7.widget.CardView>

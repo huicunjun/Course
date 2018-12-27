@@ -1,14 +1,15 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\Father\Desktop\CurriculumSchedule\app\src\main\AndroidManifest.xml:2:1-29:12
-INJECTED from C:\Users\Father\Desktop\CurriculumSchedule\app\src\main\AndroidManifest.xml:2:1-29:12
-INJECTED from C:\Users\Father\Desktop\CurriculumSchedule\app\src\main\AndroidManifest.xml:2:1-29:12
-INJECTED from C:\Users\Father\Desktop\CurriculumSchedule\app\src\main\AndroidManifest.xml:2:1-29:12
+ADDED from C:\Users\Father\Desktop\Course\app\src\main\AndroidManifest.xml:2:1-29:12
+INJECTED from C:\Users\Father\Desktop\Course\app\src\main\AndroidManifest.xml:2:1-29:12
+INJECTED from C:\Users\Father\Desktop\Course\app\src\main\AndroidManifest.xml:2:1-29:12
+INJECTED from C:\Users\Father\Desktop\Course\app\src\main\AndroidManifest.xml:2:1-29:12
 MERGED from [com.android.support:design:28.0.0] C:\Users\Father\.gradle\caches\transforms-1\files-1.1\design-28.0.0.aar\e7002ff55e99df94c46f02414f027b7f\AndroidManifest.xml:17:1-24:12
 MERGED from [com.android.support:appcompat-v7:28.0.0] C:\Users\Father\.gradle\caches\transforms-1\files-1.1\appcompat-v7-28.0.0.aar\1bb7e797c65ad04761f2f533fd92a82b\AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:support-v4:28.0.0] C:\Users\Father\.gradle\caches\transforms-1\files-1.1\support-v4-28.0.0.aar\64f2a57b49913c39a355eb026ec3d7dc\AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:cardview-v7:28.0.0] C:\Users\Father\.gradle\caches\transforms-1\files-1.1\cardview-v7-28.0.0.aar\2de37edb7076e478b5b8833bd79cff55\AndroidManifest.xml:17:1-22:12
 MERGED from [com.github.bumptech.glide:glide:4.8.0] C:\Users\Father\.gradle\caches\transforms-1\files-1.1\glide-4.8.0.aar\996e49a66f6c7f7bb233814a7ea5abf1\AndroidManifest.xml:2:1-12:12
+MERGED from [com.github.skydoves:colorpickerview:2.0.1] C:\Users\Father\.gradle\caches\transforms-1\files-1.1\colorpickerview-2.0.1.aar\4f8a6f341a52561e0a4fc2243c8f3692\AndroidManifest.xml:2:1-11:12
 MERGED from [com.android.support:animated-vector-drawable:28.0.0] C:\Users\Father\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-28.0.0.aar\f046c6d9c00cbefdb71f46ca587b42ff\AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:recyclerview-v7:28.0.0] C:\Users\Father\.gradle\caches\transforms-1\files-1.1\recyclerview-v7-28.0.0.aar\342f120cf21123e79af17d2a92ce4076\AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:support-fragment:28.0.0] C:\Users\Father\.gradle\caches\transforms-1\files-1.1\support-fragment-28.0.0.aar\40f6dee458dcaa087d55a1f2911cbc96\AndroidManifest.xml:17:1-22:12
@@ -38,39 +39,39 @@ MERGED from [android.arch.lifecycle:livedata:1.1.1] C:\Users\Father\.gradle\cach
 MERGED from [android.arch.lifecycle:livedata-core:1.1.1] C:\Users\Father\.gradle\caches\transforms-1\files-1.1\livedata-core-1.1.1.aar\71c4176b3b88f93ff9f9f24a3cba8373\AndroidManifest.xml:17:1-22:12
 MERGED from [android.arch.core:runtime:1.1.1] C:\Users\Father\.gradle\caches\transforms-1\files-1.1\runtime-1.1.1.aar\2f2b234daf93b536b9f721ae3887a8d5\AndroidManifest.xml:17:1-22:12
 MERGED from [android.arch.lifecycle:viewmodel:1.1.1] C:\Users\Father\.gradle\caches\transforms-1\files-1.1\viewmodel-1.1.1.aar\03e885ef1685afdc586f56c3a6fcc179\AndroidManifest.xml:17:1-22:12
-INJECTED from C:\Users\Father\Desktop\CurriculumSchedule\app\src\main\AndroidManifest.xml:2:1-29:12
-INJECTED from C:\Users\Father\Desktop\CurriculumSchedule\app\src\main\AndroidManifest.xml:2:1-29:12
-INJECTED from C:\Users\Father\Desktop\CurriculumSchedule\app\src\main\AndroidManifest.xml:2:1-29:12
+INJECTED from C:\Users\Father\Desktop\Course\app\src\main\AndroidManifest.xml:2:1-29:12
+INJECTED from C:\Users\Father\Desktop\Course\app\src\main\AndroidManifest.xml:2:1-29:12
+INJECTED from C:\Users\Father\Desktop\Course\app\src\main\AndroidManifest.xml:2:1-29:12
 	package
-		ADDED from C:\Users\Father\Desktop\CurriculumSchedule\app\src\main\AndroidManifest.xml:4:5-36
-		INJECTED from C:\Users\Father\Desktop\CurriculumSchedule\app\src\main\AndroidManifest.xml
-		INJECTED from C:\Users\Father\Desktop\CurriculumSchedule\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\Father\Desktop\Course\app\src\main\AndroidManifest.xml:4:5-36
+		INJECTED from C:\Users\Father\Desktop\Course\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\Father\Desktop\Course\app\src\main\AndroidManifest.xml
 	android:versionName
-		INJECTED from C:\Users\Father\Desktop\CurriculumSchedule\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\Father\Desktop\CurriculumSchedule\app\src\main\AndroidManifest.xml:2:1-29:12
-		INJECTED from C:\Users\Father\Desktop\CurriculumSchedule\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\Father\Desktop\Course\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\Father\Desktop\Course\app\src\main\AndroidManifest.xml:2:1-29:12
+		INJECTED from C:\Users\Father\Desktop\Course\app\src\main\AndroidManifest.xml
 	xmlns:tools
-		ADDED from C:\Users\Father\Desktop\CurriculumSchedule\app\src\main\AndroidManifest.xml:3:5-51
+		ADDED from C:\Users\Father\Desktop\Course\app\src\main\AndroidManifest.xml:3:5-51
 	android:versionCode
-		INJECTED from C:\Users\Father\Desktop\CurriculumSchedule\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\Father\Desktop\CurriculumSchedule\app\src\main\AndroidManifest.xml:2:1-29:12
-		INJECTED from C:\Users\Father\Desktop\CurriculumSchedule\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\Father\Desktop\Course\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\Father\Desktop\Course\app\src\main\AndroidManifest.xml:2:1-29:12
+		INJECTED from C:\Users\Father\Desktop\Course\app\src\main\AndroidManifest.xml
 	xmlns:android
-		ADDED from C:\Users\Father\Desktop\CurriculumSchedule\app\src\main\AndroidManifest.xml:2:11-69
+		ADDED from C:\Users\Father\Desktop\Course\app\src\main\AndroidManifest.xml:2:11-69
 uses-permission#android.permission.INTERNET
-ADDED from C:\Users\Father\Desktop\CurriculumSchedule\app\src\main\AndroidManifest.xml:6:5-67
+ADDED from C:\Users\Father\Desktop\Course\app\src\main\AndroidManifest.xml:6:5-67
 	android:name
-		ADDED from C:\Users\Father\Desktop\CurriculumSchedule\app\src\main\AndroidManifest.xml:6:22-64
+		ADDED from C:\Users\Father\Desktop\Course\app\src\main\AndroidManifest.xml:6:22-64
 uses-permission#android.permission.ACCESS_NETWORK_STATE
-ADDED from C:\Users\Father\Desktop\CurriculumSchedule\app\src\main\AndroidManifest.xml:7:5-79
+ADDED from C:\Users\Father\Desktop\Course\app\src\main\AndroidManifest.xml:7:5-79
 	android:name
-		ADDED from C:\Users\Father\Desktop\CurriculumSchedule\app\src\main\AndroidManifest.xml:7:22-76
+		ADDED from C:\Users\Father\Desktop\Course\app\src\main\AndroidManifest.xml:7:22-76
 uses-permission#android.permission.CHANGE_NETWORK_STATE
-ADDED from C:\Users\Father\Desktop\CurriculumSchedule\app\src\main\AndroidManifest.xml:8:5-79
+ADDED from C:\Users\Father\Desktop\Course\app\src\main\AndroidManifest.xml:8:5-79
 	android:name
-		ADDED from C:\Users\Father\Desktop\CurriculumSchedule\app\src\main\AndroidManifest.xml:8:22-76
+		ADDED from C:\Users\Father\Desktop\Course\app\src\main\AndroidManifest.xml:8:22-76
 application
-ADDED from C:\Users\Father\Desktop\CurriculumSchedule\app\src\main\AndroidManifest.xml:10:5-27:19
+ADDED from C:\Users\Father\Desktop\Course\app\src\main\AndroidManifest.xml:10:5-27:19
 MERGED from [com.android.support:design:28.0.0] C:\Users\Father\.gradle\caches\transforms-1\files-1.1\design-28.0.0.aar\e7002ff55e99df94c46f02414f027b7f\AndroidManifest.xml:22:5-20
 MERGED from [com.android.support:design:28.0.0] C:\Users\Father\.gradle\caches\transforms-1\files-1.1\design-28.0.0.aar\e7002ff55e99df94c46f02414f027b7f\AndroidManifest.xml:22:5-20
 MERGED from [com.github.bumptech.glide:glide:4.8.0] C:\Users\Father\.gradle\caches\transforms-1\files-1.1\glide-4.8.0.aar\996e49a66f6c7f7bb233814a7ea5abf1\AndroidManifest.xml:10:5-20
@@ -84,47 +85,47 @@ MERGED from [com.github.bumptech.glide:gifdecoder:4.8.0] C:\Users\Father\.gradle
 	android:appComponentFactory
 		ADDED from [com.android.support:support-compat:28.0.0] C:\Users\Father\.gradle\caches\transforms-1\files-1.1\support-compat-28.0.0.aar\2dbac3b904fcc3d797dcb8a13fa99c01\AndroidManifest.xml:22:18-91
 	android:supportsRtl
-		ADDED from C:\Users\Father\Desktop\CurriculumSchedule\app\src\main\AndroidManifest.xml:14:9-35
+		ADDED from C:\Users\Father\Desktop\Course\app\src\main\AndroidManifest.xml:14:9-35
 	android:label
-		ADDED from C:\Users\Father\Desktop\CurriculumSchedule\app\src\main\AndroidManifest.xml:13:9-41
+		ADDED from C:\Users\Father\Desktop\Course\app\src\main\AndroidManifest.xml:13:9-41
 	tools:ignore
-		ADDED from C:\Users\Father\Desktop\CurriculumSchedule\app\src\main\AndroidManifest.xml:16:9-48
+		ADDED from C:\Users\Father\Desktop\Course\app\src\main\AndroidManifest.xml:16:9-48
 	android:icon
-		ADDED from C:\Users\Father\Desktop\CurriculumSchedule\app\src\main\AndroidManifest.xml:12:9-43
+		ADDED from C:\Users\Father\Desktop\Course\app\src\main\AndroidManifest.xml:12:9-43
 	android:allowBackup
-		ADDED from C:\Users\Father\Desktop\CurriculumSchedule\app\src\main\AndroidManifest.xml:11:9-35
+		ADDED from C:\Users\Father\Desktop\Course\app\src\main\AndroidManifest.xml:11:9-35
 	android:theme
-		ADDED from C:\Users\Father\Desktop\CurriculumSchedule\app\src\main\AndroidManifest.xml:15:9-40
+		ADDED from C:\Users\Father\Desktop\Course\app\src\main\AndroidManifest.xml:15:9-40
 activity#lx.curriculumschedule.WelcomeActivity
-ADDED from C:\Users\Father\Desktop\CurriculumSchedule\app\src\main\AndroidManifest.xml:17:9-23:20
+ADDED from C:\Users\Father\Desktop\Course\app\src\main\AndroidManifest.xml:17:9-23:20
 	android:name
-		ADDED from C:\Users\Father\Desktop\CurriculumSchedule\app\src\main\AndroidManifest.xml:17:19-50
+		ADDED from C:\Users\Father\Desktop\Course\app\src\main\AndroidManifest.xml:17:19-50
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from C:\Users\Father\Desktop\CurriculumSchedule\app\src\main\AndroidManifest.xml:18:13-22:29
+ADDED from C:\Users\Father\Desktop\Course\app\src\main\AndroidManifest.xml:18:13-22:29
 action#android.intent.action.MAIN
-ADDED from C:\Users\Father\Desktop\CurriculumSchedule\app\src\main\AndroidManifest.xml:19:17-69
+ADDED from C:\Users\Father\Desktop\Course\app\src\main\AndroidManifest.xml:19:17-69
 	android:name
-		ADDED from C:\Users\Father\Desktop\CurriculumSchedule\app\src\main\AndroidManifest.xml:19:25-66
+		ADDED from C:\Users\Father\Desktop\Course\app\src\main\AndroidManifest.xml:19:25-66
 category#android.intent.category.LAUNCHER
-ADDED from C:\Users\Father\Desktop\CurriculumSchedule\app\src\main\AndroidManifest.xml:21:17-77
+ADDED from C:\Users\Father\Desktop\Course\app\src\main\AndroidManifest.xml:21:17-77
 	android:name
-		ADDED from C:\Users\Father\Desktop\CurriculumSchedule\app\src\main\AndroidManifest.xml:21:27-74
+		ADDED from C:\Users\Father\Desktop\Course\app\src\main\AndroidManifest.xml:21:27-74
 activity#lx.curriculumschedule.ui.HomeActivity
-ADDED from C:\Users\Father\Desktop\CurriculumSchedule\app\src\main\AndroidManifest.xml:24:9-53
+ADDED from C:\Users\Father\Desktop\Course\app\src\main\AndroidManifest.xml:24:9-53
 	android:name
-		ADDED from C:\Users\Father\Desktop\CurriculumSchedule\app\src\main\AndroidManifest.xml:24:19-50
+		ADDED from C:\Users\Father\Desktop\Course\app\src\main\AndroidManifest.xml:24:19-50
 activity#lx.curriculumschedule.ui.LoginActivity
-ADDED from C:\Users\Father\Desktop\CurriculumSchedule\app\src\main\AndroidManifest.xml:25:9-54
+ADDED from C:\Users\Father\Desktop\Course\app\src\main\AndroidManifest.xml:25:9-54
 	android:name
-		ADDED from C:\Users\Father\Desktop\CurriculumSchedule\app\src\main\AndroidManifest.xml:25:19-51
+		ADDED from C:\Users\Father\Desktop\Course\app\src\main\AndroidManifest.xml:25:19-51
 activity#lx.curriculumschedule.ui.CourseActivity
-ADDED from C:\Users\Father\Desktop\CurriculumSchedule\app\src\main\AndroidManifest.xml:26:9-64
+ADDED from C:\Users\Father\Desktop\Course\app\src\main\AndroidManifest.xml:26:9-64
 	android:name
-		ADDED from C:\Users\Father\Desktop\CurriculumSchedule\app\src\main\AndroidManifest.xml:26:19-52
+		ADDED from C:\Users\Father\Desktop\Course\app\src\main\AndroidManifest.xml:26:19-52
 uses-sdk
-INJECTED from C:\Users\Father\Desktop\CurriculumSchedule\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
-INJECTED from C:\Users\Father\Desktop\CurriculumSchedule\app\src\main\AndroidManifest.xml
-INJECTED from C:\Users\Father\Desktop\CurriculumSchedule\app\src\main\AndroidManifest.xml
+INJECTED from C:\Users\Father\Desktop\Course\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from C:\Users\Father\Desktop\Course\app\src\main\AndroidManifest.xml
+INJECTED from C:\Users\Father\Desktop\Course\app\src\main\AndroidManifest.xml
 MERGED from [com.android.support:design:28.0.0] C:\Users\Father\.gradle\caches\transforms-1\files-1.1\design-28.0.0.aar\e7002ff55e99df94c46f02414f027b7f\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:design:28.0.0] C:\Users\Father\.gradle\caches\transforms-1\files-1.1\design-28.0.0.aar\e7002ff55e99df94c46f02414f027b7f\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:appcompat-v7:28.0.0] C:\Users\Father\.gradle\caches\transforms-1\files-1.1\appcompat-v7-28.0.0.aar\1bb7e797c65ad04761f2f533fd92a82b\AndroidManifest.xml:20:5-44
@@ -135,6 +136,8 @@ MERGED from [com.android.support:cardview-v7:28.0.0] C:\Users\Father\.gradle\cac
 MERGED from [com.android.support:cardview-v7:28.0.0] C:\Users\Father\.gradle\caches\transforms-1\files-1.1\cardview-v7-28.0.0.aar\2de37edb7076e478b5b8833bd79cff55\AndroidManifest.xml:20:5-44
 MERGED from [com.github.bumptech.glide:glide:4.8.0] C:\Users\Father\.gradle\caches\transforms-1\files-1.1\glide-4.8.0.aar\996e49a66f6c7f7bb233814a7ea5abf1\AndroidManifest.xml:6:5-8:41
 MERGED from [com.github.bumptech.glide:glide:4.8.0] C:\Users\Father\.gradle\caches\transforms-1\files-1.1\glide-4.8.0.aar\996e49a66f6c7f7bb233814a7ea5abf1\AndroidManifest.xml:6:5-8:41
+MERGED from [com.github.skydoves:colorpickerview:2.0.1] C:\Users\Father\.gradle\caches\transforms-1\files-1.1\colorpickerview-2.0.1.aar\4f8a6f341a52561e0a4fc2243c8f3692\AndroidManifest.xml:7:5-9:41
+MERGED from [com.github.skydoves:colorpickerview:2.0.1] C:\Users\Father\.gradle\caches\transforms-1\files-1.1\colorpickerview-2.0.1.aar\4f8a6f341a52561e0a4fc2243c8f3692\AndroidManifest.xml:7:5-9:41
 MERGED from [com.android.support:animated-vector-drawable:28.0.0] C:\Users\Father\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-28.0.0.aar\f046c6d9c00cbefdb71f46ca587b42ff\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:animated-vector-drawable:28.0.0] C:\Users\Father\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-28.0.0.aar\f046c6d9c00cbefdb71f46ca587b42ff\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:recyclerview-v7:28.0.0] C:\Users\Father\.gradle\caches\transforms-1\files-1.1\recyclerview-v7-28.0.0.aar\342f120cf21123e79af17d2a92ce4076\AndroidManifest.xml:20:5-44
@@ -193,13 +196,13 @@ MERGED from [android.arch.core:runtime:1.1.1] C:\Users\Father\.gradle\caches\tra
 MERGED from [android.arch.core:runtime:1.1.1] C:\Users\Father\.gradle\caches\transforms-1\files-1.1\runtime-1.1.1.aar\2f2b234daf93b536b9f721ae3887a8d5\AndroidManifest.xml:20:5-44
 MERGED from [android.arch.lifecycle:viewmodel:1.1.1] C:\Users\Father\.gradle\caches\transforms-1\files-1.1\viewmodel-1.1.1.aar\03e885ef1685afdc586f56c3a6fcc179\AndroidManifest.xml:20:5-44
 MERGED from [android.arch.lifecycle:viewmodel:1.1.1] C:\Users\Father\.gradle\caches\transforms-1\files-1.1\viewmodel-1.1.1.aar\03e885ef1685afdc586f56c3a6fcc179\AndroidManifest.xml:20:5-44
-INJECTED from C:\Users\Father\Desktop\CurriculumSchedule\app\src\main\AndroidManifest.xml
-INJECTED from C:\Users\Father\Desktop\CurriculumSchedule\app\src\main\AndroidManifest.xml
+INJECTED from C:\Users\Father\Desktop\Course\app\src\main\AndroidManifest.xml
+INJECTED from C:\Users\Father\Desktop\Course\app\src\main\AndroidManifest.xml
 	android:targetSdkVersion
-		INJECTED from C:\Users\Father\Desktop\CurriculumSchedule\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\Father\Desktop\CurriculumSchedule\app\src\main\AndroidManifest.xml
-		INJECTED from C:\Users\Father\Desktop\CurriculumSchedule\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\Father\Desktop\Course\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\Father\Desktop\Course\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\Father\Desktop\Course\app\src\main\AndroidManifest.xml
 	android:minSdkVersion
-		INJECTED from C:\Users\Father\Desktop\CurriculumSchedule\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\Father\Desktop\CurriculumSchedule\app\src\main\AndroidManifest.xml
-		INJECTED from C:\Users\Father\Desktop\CurriculumSchedule\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\Father\Desktop\Course\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\Father\Desktop\Course\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\Father\Desktop\Course\app\src\main\AndroidManifest.xml
