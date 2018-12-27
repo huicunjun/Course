@@ -18,6 +18,9 @@ public class WelcomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome);
         HttpUtils.localCookie(WelcomeActivity.this);
+        //
+        //
+        //
        /* new Thread(new Runnable() {
             @Override
             public void run() {
