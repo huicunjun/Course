@@ -262,7 +262,9 @@ public class QCourseActivity extends AppCompatActivity implements View.OnClickLi
                 int color = getRandomColor();
                 getWindow().setStatusBarColor(color);
                 mToolbar.setBackgroundColor(color);
-                mFab.setBackgroundColor(color);
+
+
+               // mFab.setBackgroundColor(color);
                 break;
         }
     }

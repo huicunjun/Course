@@ -1,26 +1,66 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:id="@+id/dl"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.HomeActivity">
+    tools:context=".Fragment1">
 
-<android.support.v7.widget.Toolbar
-    android:id="@+id/toolbar"
-    android:background="@color/colorAccent"
-    app:title="广职妈妈"
-    app:titleTextColor="@color/colorFFFFFF"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"/>
 
-    <android.support.design.widget.TabLayout
-        android:id="@+id/tab"
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
-    <android.support.v4.view.ViewPager
-        android:id="@+id/vp"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <android.support.v7.widget.Toolbar
+                android:theme="@style/ToolbarTheme_while"
+                app:navigationIcon="@mipmap/pf_menu_light"
+                app:titleTextAppearance="@style/Toolbar.TitleText"
+                app:subtitleTextAppearance="@style/Toolbar.Sub.TitleText"
+                app:titleTextColor="@color/colorFFFFFF"
+                android:background="@color/colorAccent"
+                app:title="广职妈妈"
+                app:subtitleTextColor="@color/colorFFFFFF"
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"/>
+            <FrameLayout
+                android:id="@+id/content"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+        </LinearLayout>
+
+        <android.support.design.widget.FloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_gravity="end|bottom"
+            android:id="@+id/fab"
+            app:elevation="5dp"
+            android:background="@color/color5c6bc0"
+            android:src="@drawable/color"
+            android:clickable="true"
+            app:borderWidth="0dp"
+            app:rippleColor="#0097a7"
+            android:layout_marginBottom="20dp"
+            android:layout_marginEnd="20dp"
+            app:pressedTranslationZ="12dp"
+            android:layout_height="wrap_content"
+            android:focusable="true" />
+    </FrameLayout>
+
+
+    <android.support.design.widget.NavigationView
+        android:id="@+id/nav_view"
+        android:gravity="center"
+        android:layout_gravity="start"
+        app:headerLayout="@layout/layout_course_head"
+        app:menu="@menu/nav_course"
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
-</LinearLayout>
+        android:layout_height="match_parent">
+    </android.support.design.widget.NavigationView>
+
+</android.support.v4.widget.DrawerLayout>

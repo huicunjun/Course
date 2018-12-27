@@ -12,6 +12,7 @@ import java.util.List;
 import java.util.Map;
 
 import lx.curriculumschedule.ui.CourseActivity;
+import lx.curriculumschedule.ui.HomeActivity;
 import lx.curriculumschedule.ui.LoginActivity;
 import okhttp3.Cookie;
 import okhttp3.CookieJar;
@@ -129,7 +130,7 @@ public class HttpUtils {
                         .value(value)
                         .build();
                 HttpUtils.MyCookiesJar.addCookie(domain,cookie);
-                Intent intent = new Intent(activity,CourseActivity.class);
+                Intent intent = new Intent(activity,HomeActivity.class);
                 activity.startActivity(intent);
                 activity.finish();
             }else {

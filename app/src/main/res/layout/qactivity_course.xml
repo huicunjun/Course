@@ -320,7 +320,7 @@
 
 
     <android.support.design.widget.NavigationView
-        android:id="@+id/pifu_nav_view"
+        android:id="@+id/nav_view"
         android:gravity="center"
         android:layout_gravity="start"
         app:headerLayout="@layout/layout_course_head"
