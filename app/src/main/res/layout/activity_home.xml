@@ -54,11 +54,9 @@
 
     <android.support.design.widget.NavigationView
         android:id="@+id/nav_view"
-        android:gravity="center"
         android:layout_gravity="start"
         app:headerLayout="@layout/layout_course_head"
         app:menu="@menu/nav_course"
-        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
     </android.support.design.widget.NavigationView>

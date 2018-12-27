@@ -16,14 +16,22 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 
+import com.bumptech.glide.Glide;
+import com.google.gson.Gson;
 import com.qmuiteam.qmui.widget.dialog.QMUIDialog;
 
+import java.io.IOException;
+
 import lx.curriculumschedule.R;
+import lx.curriculumschedule.bean.ImageApi;
 import lx.curriculumschedule.fragment.Fragment_book;
 import lx.curriculumschedule.fragment.Fragment_course;
+import lx.curriculumschedule.utils.HttpUtils;
 import lx.curriculumschedule.utils.SPUtils;
 import lx.curriculumschedule.utils.ToastUtils;
+import okhttp3.Response;
 
 public class HomeActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -56,6 +64,47 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
             }
         });
 
+        setRamdomImage();
+
+
+    }
+
+    private void setRamdomImage() {
+        View headerView = mNavView.inflateHeaderView(R.layout.layout_course_head);
+        final ImageView imageView = headerView.findViewById(R.id.head_image);
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                final String url = "https://cn.bing.com/HPImageArchive.aspx?format=js&idx=0&n=1&mkt=zh-CN";
+                try {
+                    Response response = HttpUtils.getOkHttpClient().newCall(HttpUtils.getRequest(url)).execute();
+                    ImageApi imageApi = new Gson().fromJson(response.body().string(),ImageApi.class);
+                    final String s = imageApi.getImages().get(0).getUrl();
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            Glide.with(context).load("https://cn.bing.com"+s).into(imageView);
+                        }
+                    });
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }).start();
+        /*   final String url = "https://cn.bing.com/HPImageArchive.aspx?format=js&idx=0&n=1&mkt=zh-CN";
+                           try {
+                               Response response = HttpUtils.getOkHttpClient().newCall(HttpUtils.getRequest(url)).execute();
+                               ImageApi imageApi = new Gson().fromJson(response.body().string(),ImageApi.class);
+                               final String s = imageApi.getImages().get(0).getUrl();
+                               runOnUiThread(new Runnable() {
+                                   @Override
+                                   public void run() {
+                                       Glide.with(context).load("https://cn.bing.com"+s).into(imageView);
+                                   }
+                               });
+                           } catch (IOException e) {
+                               e.printStackTrace();
+                           }*/
     }
 
     private void initToolBar() {

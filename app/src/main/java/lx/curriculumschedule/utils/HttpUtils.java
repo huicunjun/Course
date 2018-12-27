@@ -79,6 +79,11 @@ public class HttpUtils {
 
     }
 
+    public static Request getRequest(String url) {
+        Request request = new Request.Builder().get().url(url).get().build();
+        return request;
+    }
+
     public static class MyCookiesJar implements CookieJar {
 
         private static  Map<String, List<Cookie>> cookiestores = new HashMap<>();
